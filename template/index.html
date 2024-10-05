@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Environment Classifier</title>
+</head>
+<style>
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bolder;
+        font-size: 15px;
+        border-left: 100px;
+    
+    }
+    body{
+        position:center;
+        border-left-width: 100px;
+        background-color: rgb(228, 199, 11);
+        background:radial-gradient(circle,closest-corner, #f8bb05, #aba52c);
+        font-size: larger;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    img{
+        border-radius: 10px;
+        width: 300px;
+        height: 250px;
+    }
+</style>
+<body>
+    <h1 style="font-size:large" class="text-center">Image Classifier</h1>
+    
+    <!-- Image upload form -->
+    <form class="p-3 text-center" action="/Predict_Image" method="post" enctype="multipart/form-data">
+        <input class="form-control" type="file" name="imagefile" required>
+        <input class="btn btn-primary mt-3" type="submit" value="Classify Image">
+    </form>
+
+    <!-- Display prediction result -->
+    {% if prediction %}
+        <p class="text-center">Image is classified as: {{ prediction }}</p>
+    {% endif %}
+    
+    <!-- Display uploaded image -->
+    {% if filename %}
+    <div class="text-center">
+        <img src="data:image/jpeg;base64,{{ filename }}" alt="Uploaded Image">
+    </div>
+    {% endif %}
+</body>
+</html>
