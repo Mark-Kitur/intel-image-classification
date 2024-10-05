@@ -1,0 +1,10 @@
+tensorflow
+numpy
+pickle
+flask
+os
+sys
+io
+PIL
+base64
+keras
